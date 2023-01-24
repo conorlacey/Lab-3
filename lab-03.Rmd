@@ -1,14 +1,14 @@
 ---
 title: "Lab 03 - Nobel laureates"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Conor Lacey"
+date: "01/24/23"
 output: github_document
 ---
 
 ### Load packages and data
 
 ```{r load-packages, message=FALSE}
-library(tidyverse) 
+suppressWarnings(library(tidyverse))
 ```
 
 ```{r load-data, message=FALSE}
