@@ -19,26 +19,32 @@ nobel <- read_csv("data/nobel.csv")
 
 ### Exercise 1
 
-There are 935 observations with 26 variables in the Nobel data set. 
+There are 935 observations with 26 variables in the Nobel data set. Each row 
+represents an individual 
 
-```{r nobel_living data frame, message = FALSE}
+### Exercise 2
+
+```{r nobel_living-dataframe, message = FALSE}
 nobel_living<-nobel %>% 
   filter(!is.na(country) & 
            gender != "org" &
            is.na(died_date))
 ```
 
-### Exercise 2
-
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
-
 ### Exercise 3
 
 Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
+```{r country_us-variable}
+nobel_living <- nobel_living %>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other")
+  )
+```
+
+```{r nobel_living_science-dataframe}
+nobel_living_science <- nobel_living %>%
+  filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+```
 Don't forget to label your code chunk.
 Do not use spaces in code chunk labels.
 
