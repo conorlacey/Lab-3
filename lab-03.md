@@ -31,9 +31,6 @@ nobel_living<-nobel %>%
 
 ### Exercise 3
 
-It appears from the bar graphs that most nobel laureates are indeed
-living in the US.
-
 ``` r
 nobel_living <- nobel_living %>%
   mutate(
@@ -54,16 +51,43 @@ nobel_living_science %>%
   ylab("")
 ```
 
-![](lab-03_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](lab-03_files/figure-gfm/country_us-bar-graph-1.png)<!-- -->
+
+It appears from the bar graphs that most nobel laureates are indeed
+living in the US.
 
 ### Exercise 4
 
-…
+``` r
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other")
+  )
+
+nobel_living_science %>% count(born_country_us)
+```
+
+    ## # A tibble: 2 × 2
+    ##   born_country_us     n
+    ##   <chr>           <int>
+    ## 1 Other             123
+    ## 2 USA               105
+
+It appears 105 of the nobel laureates were born in the US
 
 ### Exercise 5
 
-…
+``` r
+nobel_living_science %>% 
+  ggplot(aes(y=born_country_us))+
+  facet_wrap(~category)+
+  geom_bar()+
+  ylab("")
+```
+
+![](lab-03_files/figure-gfm/born_country_us-bar-graph-1.png)<!-- -->
+
+Aside from the economics category it appears the buzzfeed article is for
+the most part true. Many of the nobel winners were born outside the US.
 
 ### Exercise 6
-
-…
