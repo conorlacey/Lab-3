@@ -33,7 +33,8 @@ nobel_living<-nobel %>%
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 1 here.
+It appears from the bar graphs that most nobel laureates are indeed living 
+in the US.
 ```{r country_us-variable}
 nobel_living <- nobel_living %>%
   mutate(
@@ -45,8 +46,15 @@ nobel_living <- nobel_living %>%
 nobel_living_science <- nobel_living %>%
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+
+```{r}
+nobel_living_science %>% 
+  ggplot(aes(y=country_us))+
+  facet_wrap(~category)+
+  geom_bar()+
+  ylab("")
+```
+
 
 ### Exercise 4
 
