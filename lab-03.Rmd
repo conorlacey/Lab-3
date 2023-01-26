@@ -50,6 +50,7 @@ nobel_living_science %>%
   ggplot(aes(y=country_us))+
   facet_wrap(~category)+
   geom_bar()+
+  labs(title = "Nobel Prize Winners")+
   ylab("")
 ```
 
@@ -74,6 +75,7 @@ It appears 105 of the nobel laureates were born in the US
 nobel_living_science %>% 
   ggplot(aes(y=born_country_us))+
   facet_wrap(~category)+
+  labs(title = "Nobel Prize Winners") +
   geom_bar()+
   ylab("")
 ```
