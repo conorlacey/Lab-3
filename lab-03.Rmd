@@ -23,7 +23,7 @@ There are 935 observations with 26 variables in the Nobel data set.
 
 ```{r nobel_living data frame, message = FALSE}
 nobel_living<-nobel %>% 
-  filter(country != is.na(country) & 
+  filter(!is.na(country) & 
            gender != "org" &
            is.na(died_date))
 ```
