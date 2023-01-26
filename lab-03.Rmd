@@ -59,8 +59,6 @@ in the US.
 ### Exercise 4
 
 ```{r born_country_us-variable}
-
-
 nobel_living_science <- nobel_living_science %>%
   mutate(
     born_country_us = if_else(born_country == "USA", "USA", "Other")
@@ -84,3 +82,10 @@ Aside from the economics category it appears the buzzfeed article is for the mos
 
 ### Exercise 6
 
+```{r born_country-outside-us-count}
+nobel_living_science %>%
+  filter(country_us == "USA" &
+           born_country_us == "Other") %>%
+  count(born_country, sort = TRUE)
+```
+Germany and the UK are the most common!
